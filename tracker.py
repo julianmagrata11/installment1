@@ -13,19 +13,36 @@ print("\t4) Exit\t\t(coming soon)")
 name = input("\nWhat's your name?")
 print (f"Welcome, {name}! Let's log two expenses.")
 
-item1 = input("First expenses?")
-amount1 = float(input("Amount? "))
-item2 = input("Second expenses?")
-amount2 = float(input("Amount? "))
+subtotal = 0
 
-total = amount1 + amount2
-average = total / 2
+item1 = input("First expenses? ")
+amount1 = float(input("Amount? "))
+subtotal += amount1
+
+item2 = input("Second expenses? ")
+amount2 = float(input("Amount? "))
+subtotal += amount2
+
+average = subtotal / 2
+
+tax_percent = float(input("Tax rate %? "))
+tax = subtotal * tax_percent / 100
+total = subtotal + tax
+
+budget = float (input("Your budget? "))
+over_budget = total > budget
+left = budget - total
+
 
 print("\n--------------------------------------")
 print("SUMMARY")
 print(f"\t- {item1}:\t${amount1}")
 print(f"\t- {item2}:\t${amount2}")
-print(f"Total spent:\t\t${total}")
+print(f"Subtotal:\t\t${subtotal}")
 print(f"Average:\t\t${average}")
+print(f"Tax ({tax_percent}%):\t\t${tax}")
+print(f"Grand total:\t\t${total}")
+print(f"Over budget?:\t\t${over_budget}")
+print(f"Left in budget:\t\t${left}")
 print("-------------------------------------------")
 print("Made by: Julian A. Magrata | Installment 1")
